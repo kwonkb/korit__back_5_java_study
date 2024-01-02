@@ -21,6 +21,7 @@ public class Operation06 {
         String name = null;
         System.out.println(name == null);
         System.out.println(name == null);
+        System.out.println("테스트 코드 작성");
 
         name = "권기범";
         String name2 = new String("권기범");
