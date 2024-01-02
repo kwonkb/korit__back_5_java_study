@@ -20,6 +20,7 @@ public class Operation06 {
 
         String name = null;
         System.out.println(name == null);
+        System.out.println(name == null);
 
         name = "권기범";
         String name2 = new String("권기범");
