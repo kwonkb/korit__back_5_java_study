@@ -18,35 +18,38 @@ public class MemberService {
         return value;
     }
 
-    boolean addMember() {
-        String code = null;
+    boolean addMember(Member[] members) {
         String name = null;
-        String age = null;
-        String address = null;
+        String charactor = null;
+        String level = null;
+        String characterClass = null;
 
         System.out.println("<<< 회원등록 >>>");
-        code = inputValue("회원코드");
-        if("exit".equalsIgnoreCase(code)) {
+
+        System.out.println();
+
+        name = inputValue("캐릭터 이름");
+        if("exit".equalsIgnoreCase(name) || "ㄷ턋".equalsIgnoreCase(name)) {
             return false;
         }
-        name = inputValue("이름");
-        if("exit".equalsIgnoreCase(name)) {
+        charactor = inputValue("클래스");
+        if("exit".equalsIgnoreCase(charactor) || "ㄷ턋".equalsIgnoreCase(charactor)) {
             return false;
         }
-        age = inputValue("나이");
-        if("exit".equalsIgnoreCase(age)) {
+        level = inputValue("아이템 레벨");
+        if("exit".equalsIgnoreCase(level) || "ㄷ턋".equalsIgnoreCase(level)) {
             return false;
         }
-        address = inputValue("주소");
-        if("exit".equalsIgnoreCase(address)) {
+        characterClass = inputValue("직업");
+        if("exit".equalsIgnoreCase(characterClass) || "ㄷ턋".equalsIgnoreCase(characterClass)) {
             return false;
         }
 
-        Member member = new Member(code,name,Integer.parseInt(age), address);
+        Member member = new Member(name,charactor,Double.parseDouble(level), characterClass);
 
         MemberRepository memberRepository = new MemberRepository();
 
 
-        return memberRepository.insert(member) > 0;
+        return memberRepository.insert(members, member) > 0;
     }
 }
